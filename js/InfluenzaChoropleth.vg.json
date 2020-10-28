@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Influenza Cases within New York from 2009-2010 season to 2018-2019 season",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/new-york-counties.topojson",
+    "format": {"type": "topojson", "feature": "new-york-counties"}
+  },
+  "transform": [
+    {
+    "lookup": "properties.name",
+    "from": {
+      "data": {
+      "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/countyInfected.csv"
+      },
+      "key": "County",
+      "fields": ["Infected"]
+    }
+    },
+    {"calculate": "datum.Infected", "as": "Cases"}
+  ],
+  "projection": {"type": "mercator"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    
+    "color": {
+    "field": "Infected",
+    "type": "quantitative",
+    "scale": {"type": "log"}
+    },
+    "tooltip": [
+    {"field": "properties.name", "type": "nominal", "title": "County"},
+    {"field": "Cases", "type": "quantitative"}
+    ]
+  }
+}
