@@ -12,7 +12,7 @@
       "as": "Casesper10,000Population"
     }
   ],
-  "mark": {"type": "circle", "size": 250},
+  "mark": {"type": "circle", "size": 100},
   "selection": {
     "region_highlight": {
       "type": "multi",
