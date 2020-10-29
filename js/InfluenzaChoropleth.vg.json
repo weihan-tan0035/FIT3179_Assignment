@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Influenza Cases within New York from 2009-2010 season to 2018-2019 season",
   "height": 600,
+  "width": 750,
   "data": {
     "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/new-york-counties.topojson",
     "format": {"type": "topojson", "feature": "new-york-counties"}
