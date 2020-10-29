@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width":500,
+  "height":400,
+  "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/countyInfected.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.Infected/datum.Population*10000",
+      "as": "Casesper10,000Population"
+    }
+  ],
+  "mark": {"type": "circle", "size": 500},
+  "selection": {
+    "region_highlight": {
+      "type": "multi",
+      "fields": [
+        "Region"
+      ],
+      "bind": "legend"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "Population",
+      "type": "quantitative",
+      "axis":{"tickCount":4},
+      "scale":{"type":"log"}
+    },
+    "y": {
+      "field": "Infected",
+      "type": "quantitative",
+      "axis":{"tickCount":4},
+      "scale":{"type":"log"}
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "WESTERN",
+          "CAPITAL DISTRICT",
+          "NYC",
+          "CENTRAL",
+          "METRO"
+        ],
+        "range": [
+          "#e41a1c",
+          "#984ea3",
+          "#ff7f00",
+          "#ff7ee3",
+          "#377eb8"
+        ]
+      }
+    },
+    "opacity": {
+    "condition": {
+      "selection": "region_highlight",
+      "value": 0.8
+    },
+    "value": 0.1
+  },
+    "tooltip": [
+    {
+      "field": "County",
+      "type": "nominal"
+    },
+    {
+      "field": "Region",
+      "type": "nominal"
+    },
+    {
+      "field": "Infected",
+      "type": "quantitative",
+      "format": ","
+    },
+    {
+      "field": "Population",
+      "type": "quantitative",
+      "format": ","
+    },
+    {
+      "field": "Casesper10,000Population",
+      "type": "quantitative",
+      "format": ",",
+      "title" : "cases per 10,000 residents"
+    }
+  ]
+  }
+}
