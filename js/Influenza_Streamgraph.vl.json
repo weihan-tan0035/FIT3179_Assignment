@@ -49,7 +49,11 @@
         "domain": ["CAPITAL DISTRICT", "CENTRAL", "METRO", "NYC", "WESTERN"],
         "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8"]
       }
-    }
-  },
-  "config": {}
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal"},
+      {"field": "Season", "type": "nominal", "title": "Season"},
+      {"field": "Infected", "type": "quantitative"}
+    ]
+  }
 }
