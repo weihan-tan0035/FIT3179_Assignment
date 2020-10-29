@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/seasonInfectedRegion.csv"
+  },
+  "params": [
+    {
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "CAPITAL DISTRICT",
+          "CENTRAL",
+          "METRO",
+          "NYC",
+          "WESTERN"
+        ],
+        "labels": [
+          "Show All",
+          "Capital District",
+          "Central New york",
+          "New York metropolitan area",
+          "New York City",
+          "Western New York"
+        ],
+        "name": "Region:"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": " Region_selection==null||datum.Region==Region_selection"}
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {"field": "Season", "axis": {"domain": false, "tickSize": 0}},
+    "y": {
+      "aggregate": "sum",
+      "field": "Infected",
+      "axis": null,
+      "stack": "center"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+        "domain": ["CAPITAL DISTRICT", "CENTRAL", "METRO", "NYC", "WESTERN"],
+        "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8"]
+      }
+    }
+  },
+  "config": {}
+}
