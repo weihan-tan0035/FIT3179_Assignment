@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
+  "width": 450,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/seasonInfectedRegion.csv"
