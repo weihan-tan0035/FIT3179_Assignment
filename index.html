@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vancouver Crime Report</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- custom style-->
+    <style>
+        *{
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1{
+            font-size: 2.5em;
+            font-family: 'Merriweather', serif;
+            color: red;
+        }
+        h2{
+            font-family: 'Merriweather', serif;
+        }
+        h3{
+            font-weight: bold;
+        }
+        p{
+            font-size: 0.9em;
+        }
+        body{
+            background-color: lightgrey;
+        }
+        .page{
+            width: 850px;
+            height: auto;
+            background-color: white;   
+            margin: auto;
+            padding: 50px;
+            padding-top: 35px;
+        }
+        .vis-container{
+            width: 100%;
+        }
+        .description h2, h1{
+            margin-top:0px;
+        }
+        .description-right {
+            padding-left: 20px;
+        }
+        .description-left{
+            padding-right: 20px;
+        }
+        .pure-g{
+            margin-bottom: 25px;
+        }
+        .small-font{
+            font-size: 12px;
+        }
+        .sub-heading{
+            font-size: 0.875em;
+            color: 	#666666;
+        }
+        .light_green_text{
+            color: #93c4aa;
+        }
+        .peach_text{
+            color: #f78a64;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <!-- pure grid group -->
+        <!-- Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <h1>Crime in Vancouver</h1>
+            </div>
+            <div class="pure-u-1">
+                <div class="sub-heading">
+                    New York is a Northeastern state of the United States of America(USA or simply just US). 
+                    Being one of the original thirteen colonies that formed the United States, it is the forth 
+                    most populous state in the US, and is also home to New York City, the most populous city in the US.
+                </div>
+            </div>
+        </div>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div id="choropleth" class="vis-container"></div>
+            </div>
+        </div>
+
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-4">
+                <div class="description-left">
+                    <h2>Counties in new york state</h2>
+                    <p>There are multiple Counties in new york state ...</p>
+                </div>
+            </div>
+            <div class="pure-u-3-4">
+                <div id="dotgraph"  class="vis-container"></div>
+            </div>
+        </div>
+
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description-left">
+                    <h2>Types of Crime</h2>
+                    <p>
+                        There are several type of crimes ...
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="streamgraph" class="vis-container"></div>
+            </div>
+        </div>
+        
+        
+        
+       <!-- pure grid group -->
+          <div class="pure-g">
+              <div class="pure-u-2-3">
+                <div id="donutchart"  class="vis-container"></div>
+              </div>
+              <div class="pure-u-1-3">
+                <div class="description description-right">
+                  <h2>This is the second section</h2>
+                  <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+                </div>
+              </div>
+
+          </div>
+
+    </div> <!-- end page -->
+
+    <!-- Start of script -->
+    <script type="text/javascript">
+        var specVis1 = "js/InfluenzaChoropleth.vg.json";
+        var specVis2 = "js/InfluenzaDot.vg.json";
+        var specVis3 = "js/Influenza_Streamgraph.vl.json";
+        var specVis4 = "js/SeasonDonut.vl.json";
+
+        vegaEmbed('#choropleth', specVis1, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        vegaEmbed('#dotgraph', specVis2, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#streamgraph', specVis3, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#donutchart', specVis4, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+</body>
+</html>
