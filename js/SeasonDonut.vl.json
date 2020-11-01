@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Ratio of Influenza Infected people to healthy people in New York",
   "height":400,
   "data": {
     "url": "https://raw.githubusercontent.com/weihan-tan0035/FIT3179_Assignment/main/data/seasonInfected.csv"
