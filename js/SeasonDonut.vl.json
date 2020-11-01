@@ -51,17 +51,7 @@
       "field": "Status",
       "type": "nominal",
       "scale": {"range": ["#3333ff", "#aaaa11"]}
-    },
-    "tooltip": [
-      {"field": "Status", "type": "nominal", "title": "Status"},
-      {"field": "Season", "type": "nominal", "title": "Season"},
-      {"field": "Count", "type": "quantitative"},
-      {
-        "field": "popPercentage",
-        "type": "quantitative",
-        "title": "percentage of population"
-      }
-    ]
+    }
   },
   "view": {"stroke": null}
 }
