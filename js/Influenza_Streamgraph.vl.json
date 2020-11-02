@@ -46,8 +46,20 @@
       "field": "Region",
       "type": "nominal",
       "scale": {
-        "domain": ["CAPITAL DISTRICT", "CENTRAL", "METRO", "NYC", "WESTERN"],
-        "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8"]
+        "domain": [
+          "WESTERN",
+          "CAPITAL DISTRICT",
+          "NYC",
+          "CENTRAL",
+          "METRO"
+        ],
+        "range": [
+          "#e41a1c",
+          "#984ea3",
+          "#ff7f00",
+          "#ff7ee3",
+          "#377eb8"
+        ]
       }
     },
     "tooltip": [
